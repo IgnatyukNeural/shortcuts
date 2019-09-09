@@ -36,7 +36,6 @@ public class ShortcutController {
         return "create_shortcut";
     }
 
-    //TODO: StackOverflowError: null
     @PostMapping("/create_shortcut/{parentEnvId}")
     public String createShortcut(@PathVariable("parentEnvId") String parentEnvId, @ModelAttribute("shortcut") Shortcut shortcut) {
 
