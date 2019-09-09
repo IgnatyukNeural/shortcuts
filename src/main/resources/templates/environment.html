@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${environment.envName} + ' | Shortcuts'"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Environment -->
+    <div class="requestedEnv">
+        <h2 th:text="${environment.envName}"></h2>
+        <p th:text="${environment.envDescription}"></p>
+        <a th:href="@{/create_shortcut/} + ${environment.id}">Add shortcut</a>
+        <div class="shortcuts" th:if="${#lists.size(environment.shortcuts)} > 0">
+            <table>
+                <tr>
+                    <th>Shortcut description</th>
+                    <th>Keyboard combination</th>
+                </tr>
+                <tr th:each="shortcut : ${environment.shortcuts}">
+                    <td th:text="${shortcut.shortcutDescription}"></td>
+                    <td th:text="${shortcut.keyboardCombination}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

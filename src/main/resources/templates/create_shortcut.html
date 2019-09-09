@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create shortcut | Shortcuts</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="createShortcut__form form_container">
+        <form th:action="@{/create_shortcut/} + ${parentEnvId}" method="post" th:object="${shortcut}">
+            <label for="text">Shortcut description: </label><br>
+            <input type="text" th:field="*{shortcutDescription}"><br>
+            <label for="text">Keyboard combination: </label><br>
+            <input type="text" th:field="*{keyboardCombination}"><br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

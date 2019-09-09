@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #00bcd4;
+}
+
+a:visited {
+    color: #ff7043;
+}
+
+h1, h2, h3, h4, h5, p, td, td, label {
+    color: white
+}
+
+body {
+    background-color: #222;
+}
+
+.navbar {
+    padding: 10px;
+    background-color: #303f9f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.environments {
+    margin: 0 auto;
+    width: 980px;
+}
+
+.environments .env {
+    padding: 10px;
+    margin: 10px;
+}
+
+.environments .env h5 {
+    font-size: 24px;
+}
+
+.form_container {
+    text-align: center;
+}
+
+.createEnv__form input[type = "submit"] {
+    margin-top: 10px;
+    height: 20px;
+    width: 20%;
+}
+
+
+.requestedEnv {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.requestedEnv p {
+    font-size: 19px;
+}
+
+.requestedEnv table {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #f4f4f4;
+}
+
+.requestedEnv td {
+    padding: 7px;
+}
+
+.requestedEnv th, td {
+    font-size: 20px;
+    border: 1px solid #f4f4f4;
+}
+
+.requestedEnv a {
+    font-size: 20px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-1%, -50%);
+}

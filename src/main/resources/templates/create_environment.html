@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create environment | Shortcuts</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <!-- Footer -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="createEnv__form form_container">
+        <form th:action="@{create_environment}" th:object="${environment}" method="post">
+            <label for="text">Environment name: </label><br>
+            <input type="text" th:field="*{envName}"><br>
+            <label for="text">Description: </label><br>
+            <input type="text" th:field="*{envDescription}"><br>
+            <input type="submit">
+        </form>
+
+        <!-- Home-->
+        <a th:href="@{/}">Back</a>
+    </div>
+
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

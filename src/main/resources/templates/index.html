@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Shortcuts | Home</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Environments -->
+    <div class="environments">
+        <div th:each="env : ${environments}" class="env">
+            <h5><a th:href="@{/environment/} + ${env.id}" th:text="${env.envName}"></a></h5>
+            <p th:text="${env.envDescription}"></p>
+            <a th:href="@{/create_shortcut/} + ${env.id}">Create shortcut</a>
+        </div>
+    </div>
+
+    <div class="content">
+
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
