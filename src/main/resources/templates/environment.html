@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="${environment.envName} + ' | Shortcuts'"></title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
 </head>
 <body>
     <!-- Header -->
@@ -19,10 +20,16 @@
                 <tr>
                     <th>Shortcut description</th>
                     <th>Keyboard combination</th>
+                    <th>Control</th>
                 </tr>
                 <tr th:each="shortcut : ${environment.shortcuts}">
                     <td th:text="${shortcut.shortcutDescription}"></td>
                     <td th:text="${shortcut.keyboardCombination}"></td>
+                    <td>
+                        <a th:href="@{/delete_shortcut/} + ${environment.id} + '/' + ${shortcut.id}">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>

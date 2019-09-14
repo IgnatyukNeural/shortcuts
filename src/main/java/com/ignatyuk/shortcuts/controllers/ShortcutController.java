@@ -39,7 +39,13 @@ public class ShortcutController {
     @PostMapping("/create_shortcut/{parentEnvId}")
     public String createShortcut(@PathVariable("parentEnvId") String parentEnvId, @ModelAttribute("shortcut") Shortcut shortcut) {
 
-        Integer parentId = Integer.parseInt(parentEnvId);
+        Integer parentId;
+
+        try {
+            parentId = Integer.parseInt(parentEnvId);
+        } catch (Exception e) {
+            return "redirect:/";
+        }
 
         Optional<Environment> parentEnv =  environmentRepository.findById(parentId);
 
@@ -51,6 +57,29 @@ public class ShortcutController {
         }
 
         return "redirect:/";
+
+    }
+
+    @GetMapping("/delete_shortcut/{parentEnv}/{shortcutId}")
+    public String deleteShortcut(@PathVariable("parentEnv") String parentEnvId, @PathVariable("shortcutId") String shortcutId) {
+
+        Integer requestedParentId;
+        Integer requestedShortcutId;
+
+        try {
+            requestedParentId = Integer.parseInt(parentEnvId);
+            requestedShortcutId = Integer.parseInt(shortcutId);
+        } catch (Exception e) {
+            return "redirect:/environment/" + parentEnvId;
+        }
+
+        Optional<Shortcut> shortcut = shortcutRepository.findById(requestedShortcutId);
+
+        if(shortcut.isPresent()) {
+            shortcutRepository.delete(shortcut.get());
+        }
+
+        return "redirect:/environment/" + parentEnvId;
 
     }
 
