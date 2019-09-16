@@ -62,4 +62,36 @@ public class EnvironmentController {
         return "redirect:/";
     }
 
+    @GetMapping("/update_environment/{id}")
+    public String updateEnv(@PathVariable("id") String id, Model model) {
+
+        Integer envId;
+
+        try {
+            envId = Integer.parseInt(id);
+        } catch (Exception e) {
+            return "redirect:/";
+        }
+
+        Optional<Environment> environment = environmentRepository.findById(envId);
+
+        if(environment.isPresent()) {
+            model.addAttribute("oldEnvironment", environment.get());
+            model.addAttribute("newEnvironment", new Environment());
+            return "update_environment";
+        }
+
+        return "redirect:/";
+
+    }
+
+    @PostMapping("/update_environment")
+    public String updateEnvironment(@ModelAttribute("oldEnvironment") Environment environment) {
+
+        environmentRepository.save(environment);
+
+        return "redirect:/";
+
+    }
+
 }

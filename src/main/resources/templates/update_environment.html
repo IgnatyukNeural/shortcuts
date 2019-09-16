@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update environment</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="/fragments/header :: header"></div>
+
+    <form style="text-align: center;" th:action="@{/update_environment}" th:object="${oldEnvironment}" method="post">
+        <label>Environment name:</label><br>
+        <input class="field_idfield" id="id" name="id" th:value="${oldEnvironment.id}">
+        <input id="envName" name="envName" th:value="${oldEnvironment.envName}"><br>
+        <label>Environment description: </label><br>
+        <textarea type="text" id="envDescription" name="envDescription" th:text="${oldEnvironment.envDescription}"></textarea><br>
+        <input type="submit">
+    </form>
+
+    <div th:replace="/fragments/footer :: footer"></div>
+</body>
+</html>

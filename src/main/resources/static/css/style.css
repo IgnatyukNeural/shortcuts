@@ -98,6 +98,9 @@ body {
     font-size: 20px;
 }
 
+.field_idfield {
+    display: none;
+}
 .footer {
     position: absolute;
     bottom: 1%;

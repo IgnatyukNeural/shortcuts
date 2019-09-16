@@ -15,6 +15,7 @@
             <h5><a th:href="@{/environment/} + ${env.id}" th:text="${env.envName}"></a></h5>
             <p th:text="${env.envDescription}"></p>
             <a th:href="@{/create_shortcut/} + ${env.id}">Create shortcut</a>
+            <a th:href="@{/update_environment/} + ${env.id}">Edit</a>
         </div>
     </div>
 
