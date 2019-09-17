@@ -6,17 +6,19 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+    <!-- Header -->
     <div th:replace="/fragments/header :: header"></div>
 
-    <form style="text-align: center;" th:action="@{/update_environment}" th:object="${oldEnvironment}" method="post">
+    <form style="text-align: center;" th:action="@{/update_environment}" th:object="${environment}" method="post">
         <label>Environment name:</label><br>
-        <input class="field_idfield" id="id" name="id" th:value="${oldEnvironment.id}">
-        <input id="envName" name="envName" th:value="${oldEnvironment.envName}"><br>
+        <input class="field_idfield" id="id" name="id" th:value="${environment.id}">
+        <input id="envName" name="envName" th:value="${environment.envName}"><br>
         <label>Environment description: </label><br>
-        <textarea type="text" id="envDescription" name="envDescription" th:text="${oldEnvironment.envDescription}"></textarea><br>
+        <textarea type="text" id="envDescription" name="envDescription" th:text="${environment.envDescription}"></textarea><br>
         <input type="submit">
     </form>
 
+    <!-- Footer -->
     <div th:replace="/fragments/footer :: footer"></div>
 </body>
 </html>

@@ -76,8 +76,7 @@ public class EnvironmentController {
         Optional<Environment> environment = environmentRepository.findById(envId);
 
         if(environment.isPresent()) {
-            model.addAttribute("oldEnvironment", environment.get());
-            model.addAttribute("newEnvironment", new Environment());
+            model.addAttribute("environment", environment.get());
             return "update_environment";
         }
 
@@ -86,7 +85,7 @@ public class EnvironmentController {
     }
 
     @PostMapping("/update_environment")
-    public String updateEnvironment(@ModelAttribute("oldEnvironment") Environment environment) {
+    public String updateEnvironment(@ModelAttribute("environment") Environment environment) {
 
         environmentRepository.save(environment);
 
