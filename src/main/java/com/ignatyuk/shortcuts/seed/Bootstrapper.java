@@ -32,6 +32,14 @@ public class Bootstrapper implements CommandLineRunner {
 
         environmentRepository.save(environment1);
 
+
+        Environment environment2 = new Environment();
+        environment2.setEnvName("Chrome");
+        environment2.setEnvDescription("A browser developed by Google");
+
+        environmentRepository.save(environment2);
+
+
         Shortcut shortcut = new Shortcut();
         shortcut.setShortcutDescription("Duplicate line");
         shortcut.setKeyboardCombination("Ctrl + D");
@@ -52,5 +60,20 @@ public class Bootstrapper implements CommandLineRunner {
         shortcut2.setParentEnvironment(environment1);
 
         shortcutRepository.save(shortcut2);
+
+        Shortcut shortcut3 = new Shortcut();
+        shortcut3.setShortcutDescription("Close current tab");
+        shortcut3.setKeyboardCombination("Ctrl + W");
+        shortcut3.setParentEnvironment(environment2);
+
+        shortcutRepository.save(shortcut3);
+
+        Shortcut shortcut4 = new Shortcut();
+        shortcut4.setShortcutDescription("Open a new tab");
+        shortcut4.setKeyboardCombination("Ctrl + T");
+        shortcut4.setParentEnvironment(environment2);
+
+        shortcutRepository.save(shortcut4);
+
     }
 }
